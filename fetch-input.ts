@@ -1,6 +1,5 @@
 import '@js-joda/timezone';
 import { Month, ZonedDateTime, ZoneId } from '@js-joda/core';
-import { writableStreamFromWriter } from 'streams';
 import { inputFilename } from './util.ts';
 
 const exists = (fn: string): Promise<boolean> =>
@@ -51,7 +50,6 @@ if (!resp.body) {
 }
 
 const file = await Deno.open(filename, { write: true, create: true });
-const stream = writableStreamFromWriter(file);
-await resp.body.pipeTo(stream);
+await resp.body.pipeTo(file.writable);
 
 console.log(`${filename} written`);
