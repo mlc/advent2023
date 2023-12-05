@@ -15,7 +15,7 @@ const file = await Deno.open(filename, { createNew: true, write: true });
 const ejs = await renderFileToString('template.ts.ejs', { date });
 const encoder = new TextEncoderStream();
 ReadableStream.from([ejs]).pipeTo(encoder.writable);
-encoder.readable.pipeTo(file.writable);
+await encoder.readable.pipeTo(file.writable);
 
 console.log(`wrote ${filename}`);
 
