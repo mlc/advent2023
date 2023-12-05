@@ -109,15 +109,22 @@ export const neighbors = (
 
 export const show = async (data: string | number | bigint) => {
   console.log(data);
-  const p = Deno.run({
-    cmd: ['xclip', '-i', '-selection', 'clipboard'],
+  const child = new Deno.Command('xclip', {
+    args: ['-i', '-selection', 'clipboard'],
     stdin: 'piped',
     stdout: 'inherit',
     stderr: 'inherit',
-  });
-  await p.stdin.write(new TextEncoder().encode(data.toString()));
-  await p.stdin.close();
-  await p.status();
+  }).spawn();
+  const encoder = new TextEncoderStream();
+  const pipe = encoder.readable.pipeTo(child.stdin);
+  const writer = encoder.writable.getWriter();
+  await writer.write(data.toString());
+  await writer.close();
+  await pipe;
+  const status = await child.status;
+  if (!status.success) {
+    throw new Error('xclip failed');
+  }
 };
 
 const digits = /-?\d+/g;
