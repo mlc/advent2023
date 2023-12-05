@@ -1,5 +1,46 @@
 {
-  "version": "2",
+  "version": "3",
+  "packages": {
+    "specifiers": {
+      "npm:@js-joda/core@5.4.2": "npm:@js-joda/core@5.4.2",
+      "npm:@js-joda/core@5.6.1": "npm:@js-joda/core@5.6.1",
+      "npm:@js-joda/timezone@2.15.0": "npm:@js-joda/timezone@2.15.0_@js-joda+core@5.4.2",
+      "npm:@js-joda/timezone@2.18.2": "npm:@js-joda/timezone@2.18.2_@js-joda+core@5.6.1",
+      "npm:mnemonist@0.39.5": "npm:mnemonist@0.39.5"
+    },
+    "npm": {
+      "@js-joda/core@5.4.2": {
+        "integrity": "sha512-QIDIZ9a0NfDStgD47VaTgwiPjlw1p4QPLwjOB/9+/DqIztoQopPNNAd+HdtQMHgE+ibP3dJacd8/TVL/A1RaaA==",
+        "dependencies": {}
+      },
+      "@js-joda/core@5.6.1": {
+        "integrity": "sha512-Xla/d7ZMMR6+zRd6lTio0wRZECfcfFJP7GGe9A9L4tDOlD5CX4YcZ4YZle9w58bBYzssojVapI84RraKWDQZRg==",
+        "dependencies": {}
+      },
+      "@js-joda/timezone@2.15.0_@js-joda+core@5.4.2": {
+        "integrity": "sha512-J7afu2PNR71IUvhZW4IBX+BpuuTESk9A1UklZz6T3g3yBsVER60lLueHop1iMXbqnTh85qPQ7NVRbgSYKK4BcA==",
+        "dependencies": {
+          "@js-joda/core": "@js-joda/core@5.4.2"
+        }
+      },
+      "@js-joda/timezone@2.18.2_@js-joda+core@5.6.1": {
+        "integrity": "sha512-4binOw4XBO4H6nbw0tPg1IOIrf3MF7gPeXkNiPuK1QAHPaBC0YsvtRt8BiJTqhEaBqh/Kbqp6MChlnbJ8dxQ5Q==",
+        "dependencies": {
+          "@js-joda/core": "@js-joda/core@5.6.1"
+        }
+      },
+      "mnemonist@0.39.5": {
+        "integrity": "sha512-FPUtkhtJ0efmEFGpU14x7jGbTB+s18LrzRL2KgoWz9YvcY3cPomz8tih01GbHwnGk/OmkOKfqd/RAQoc8Lm7DQ==",
+        "dependencies": {
+          "obliterator": "obliterator@2.0.4"
+        }
+      },
+      "obliterator@2.0.4": {
+        "integrity": "sha512-lgHwxlxV1qIg1Eap7LgIeoBWIMFibOjbrYPIPJZcI1mmGAI2m3lNYpK12Y+GBdPQ0U1hRwSord7GIaawz962qQ==",
+        "dependencies": {}
+      }
+    }
+  },
   "remote": {
     "https://deno.land/std@0.137.0/_util/assert.ts": "e94f2eb37cebd7f199952e242c77654e43333c1ac4c5c700e929ea3aa5489f74",
     "https://deno.land/std@0.137.0/bytes/bytes_list.ts": "67eb118e0b7891d2f389dad4add35856f4ad5faab46318ff99653456c23b025d",
@@ -80,31 +121,5 @@
     "https://deno.land/x/lodash@4.17.15-es/isObjectLike.js": "e45d69136695e8568c6fb3c7327f96ac1a8ff7284b1b22f26fb4654255fd0c6c",
     "https://deno.land/x/lodash@4.17.15-es/isSymbol.js": "f0dc1666c3cec2306cd4fd0f63a9a7ab1f25ed21d2db6664b1edc81bd3641a41",
     "https://deno.land/x/lodash@4.17.15-es/toString.js": "3f4c8d942944c3fe622e9fba36275b6291e834113619b266909822becfa94976"
-  },
-  "npm": {
-    "specifiers": {
-      "@js-joda/core@5.4.2": "@js-joda/core@5.4.2",
-      "@js-joda/core@5.6.1": "@js-joda/core@5.6.1",
-      "@js-joda/timezone@2.15.0": "@js-joda/timezone@2.15.0_@js-joda+core@5.4.2",
-      "@js-joda/timezone@2.18.2": "@js-joda/timezone@2.18.2_@js-joda+core@5.6.1"
-    },
-    "packages": {
-      "@js-joda/core@5.4.2": {
-        "integrity": "sha512-QIDIZ9a0NfDStgD47VaTgwiPjlw1p4QPLwjOB/9+/DqIztoQopPNNAd+HdtQMHgE+ibP3dJacd8/TVL/A1RaaA==",
-        "dependencies": {}
-      },
-      "@js-joda/core@5.6.1": {
-        "integrity": "sha512-Xla/d7ZMMR6+zRd6lTio0wRZECfcfFJP7GGe9A9L4tDOlD5CX4YcZ4YZle9w58bBYzssojVapI84RraKWDQZRg==",
-        "dependencies": {}
-      },
-      "@js-joda/timezone@2.15.0_@js-joda+core@5.4.2": {
-        "integrity": "sha512-J7afu2PNR71IUvhZW4IBX+BpuuTESk9A1UklZz6T3g3yBsVER60lLueHop1iMXbqnTh85qPQ7NVRbgSYKK4BcA==",
-        "dependencies": { "@js-joda/core": "@js-joda/core@5.4.2" }
-      },
-      "@js-joda/timezone@2.18.2_@js-joda+core@5.6.1": {
-        "integrity": "sha512-4binOw4XBO4H6nbw0tPg1IOIrf3MF7gPeXkNiPuK1QAHPaBC0YsvtRt8BiJTqhEaBqh/Kbqp6MChlnbJ8dxQ5Q==",
-        "dependencies": { "@js-joda/core": "@js-joda/core@5.6.1" }
-      }
-    }
   }
 }
