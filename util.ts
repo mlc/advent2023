@@ -205,3 +205,6 @@ export const gcdBig = (x: bigint, y: bigint): bigint => {
 };
 
 export const gcdMany = (...ns: readonly number[]) => ns.reduce(gcd);
+
+export const lcm = (...ns: readonly number[]) =>
+  ns.reduce((a, b) => (a / gcd(a, b)) * b, 1);

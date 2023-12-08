@@ -1,4 +1,4 @@
-import { gcdMany, productBy, readSplit, show } from './util.ts';
+import { lcm, readSplit, show } from './util.ts';
 
 const parseNode = (x: string): [string, [string, string]] => {
   const parts = x.split(/[^A-Z]+/);
@@ -24,5 +24,4 @@ await show(pathLen());
 const ghostStarts = Object.keys(nodes).filter((n) => n[2] === 'A');
 const ghostLens = ghostStarts.map((gs) => pathLen(gs, (n) => n[2] === 'Z'));
 
-const gcd = gcdMany(...ghostLens);
-await show(productBy(ghostLens) / Math.pow(gcd, ghostLens.length - 1));
+await show(lcm(...ghostLens));
