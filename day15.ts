@@ -11,7 +11,7 @@ await show(sumBy(input, hash));
 
 interface Lens {
   label: string;
-  value: number;
+  power: number;
 }
 
 const boxes: Lens[][] = [...range(0, 256)].map(() => []);
@@ -23,21 +23,23 @@ for (const lens of input) {
   }
   const l = parse[1];
   const box = hash(l);
+  const idx = boxes[box].findIndex(({ label }) => label === l);
   if (parse[2] === '-') {
-    boxes[box] = boxes[box].filter(({ label }) => label !== l);
+    if (idx >= 0) {
+      boxes[box].splice(idx, 1);
+    }
   } else {
     const power = Number(parse[3]);
-    const idx = boxes[box].findIndex(({ label }) => label === l);
     if (idx >= 0) {
-      boxes[box][idx].value = power;
+      boxes[box][idx].power = power;
     } else {
-      boxes[box].push({ label: l, value: power });
+      boxes[box].push({ label: l, power });
     }
   }
 }
 
 await show(
   sumBy(boxes, (box, boxIdx) =>
-    sumBy(box, ({ value }, i) => (boxIdx + 1) * (i + 1) * value)
+    sumBy(box, ({ power }, i) => (boxIdx + 1) * (i + 1) * power)
   )
 );
